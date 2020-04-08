@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bwsk.mapper.IUserInfoMapper">
+ 
+ 	<!-- 通过用户名查询是否存在 -->
+ 	<select id="queryUserInfoByLoginname" resultType="com.bwsk.entity.UserInfo">
+ 		select * from userinfo where loginname =#{loginname}
+ 	</select>
+  
+  	<!--添加用户信息、注册  -->
+  	<insert id="insertUserInfo" parameterType="com.bwsk.entity.UserInfo" useGeneratedKeys="true" keyProperty="userid">
+  		insert into userinfo
+  		<trim prefix="(" suffix=")" suffixOverrides=",">
+	   		<if test="loginname != null and loginname !=''">
+				loginname,
+			</if>
+			<if test="password != null and password !=''">
+				password,
+			</if>
+			<if test="userpic != null and userpic !=''">
+				userpic,
+			</if>
+			<if test="username != null and username!=''">
+				username,
+			</if>
+			<if test="usersex != null and usersex !=''">
+				usersex,
+			</if>
+			<if test="userbirthday != null and userbirthday !=''">
+				userbirthday,
+			</if>
+			<if test="usertelphone != null and usertelphone !=''">
+				usertelphone,
+			</if>
+			<if test="companyemail != null and companyemail !=''">
+				companyemail,
+			</if>
+			<if test="companytelphone != null and companytelphone !=''">
+				companytelphone,
+			</if>
+			<if test="worknumber != null and worknumber !=''">
+				worknumber,
+			</if>
+			<if test="companyposition != null and companyposition !=''">
+				companyposition,
+			</if>
+			<if test="incompany != null and incompany !=''">
+				incompany,
+			</if>
+			<if test="remark != null and remark !=''">
+				remark,
+			</if>
+			<if test="usercreatime != null and usercreatime !=''">
+				usercreatime,
+			</if>
+			
+   		</trim>
+   		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="loginname != null and loginname !=''">
+				#{loginname},
+			</if>
+			<if test="password != null and password !=''">
+				#{password},
+			</if>
+			<if test="userpic != null and userpic !=''">
+				#{userpic},
+			</if>
+			<if test="username != null and username!=''">
+				#{username},
+			</if>
+			<if test="usersex != null and usersex !=''">
+				#{usersex},
+			</if>
+			<if test="userbirthday != null and userbirthday !=''">
+				#{userbirthday},
+			</if>
+			<if test="usertelphone != null and usertelphone !=''">
+				#{usertelphone},
+			</if>
+			<if test="companyemail != null and companyemail !=''">
+				#{companyemail},
+			</if>
+			<if test="companytelphone != null and companytelphone !=''">
+				#{companytelphone},
+			</if>
+			<if test="worknumber != null and worknumber !=''">
+				#{worknumber},
+			</if>
+			<if test="companyposition != null and companyposition !=''">
+				#{companyposition},
+			</if>
+			<if test="incompany != null and incompany !=''">
+				#{incompany},
+			</if>
+			<if test="remark != null and remark !=''">
+				#{remark},
+			</if>
+			<if test="usercreatime != null and usercreatime !=''">
+				#{usercreatime},
+			</if>
+			
+   		</trim>
+  	
+  	</insert>
+  
+	   <!-- 修改用户 -->
+	   <update id="updateUserInfo"  parameterType="com.bwsk.entity.UserInfo">
+	   		update userinfo 
+	   		<set>
+	   			<if test="loginname != null and loginname !=''">
+					loginname=#{loginname},
+				</if>
+				<if test="password != null and password !=''">
+					password=#{password},
+				</if>
+				<if test="userpic != null and userpic !=''">
+					userpic=#{userpic},
+				</if>
+				<if test="username != null and username!=''">
+					username=#{username},
+				</if>
+				<if test="usersex != null and usersex !=''">
+					usersex=#{usersex},
+				</if>
+				<if test="userbirthday != null and userbirthday !=''">
+					userbirthday=#{userbirthday},
+				</if>
+				<if test="usertelphone != null and usertelphone !=''">
+					usertelphone=#{usertelphone},
+				</if>
+				<if test="companyemail != null and companyemail !=''">
+					companyemail=#{companyemail},
+				</if>
+				<if test="companytelphone != null and companytelphone !=''">
+					companytelphone=#{companytelphone},
+				</if>
+				<if test="worknumber != null and worknumber !=''">
+					worknumber=#{worknumber},
+				</if>
+				<if test="companyposition != null and companyposition !=''">
+					companyposition=#{companyposition},
+				</if>
+				<if test="incompany != null and incompany !=''">
+					incompany=#{incompany},
+				</if>
+				<if test="remark != null and remark !=''">
+					remark=#{remark},
+				</if>
+				<if test="usercreatime != null and usercreatime !=''">
+					usercreatime=#{usercreatime},
+				</if>	   			
+	   		</set>
+	   			 where userid=#{userid}
+	   </update>
+  
+</mapper>
